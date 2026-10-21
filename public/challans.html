@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Challans | Arhum Academy Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside id="sidebar"></aside>
+  <main class="main">
+    <div class="page-head">
+      <div class="flex items-center gap-3"><button class="btn btn-light menu-btn" id="menu-btn" aria-label="Open menu">☰</button><h1>Challans</h1></div>
+      <div class="flex gap-2 flex-wrap no-print" id="head-actions"><button class="btn btn-light" id="btn-print-all">Print all shown</button></div>
+    </div>
+    <div class="card" style="margin-bottom:1rem">
+      <h2 style="margin:0 0 .6rem;font-size:1.1rem">Generate monthly challans</h2>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 items-end">
+        <div><label class="label" for="g-month">Month</label><input class="input" id="g-month" type="month"></div>
+        <div><label class="label" for="g-class">Class</label><select class="input" id="g-class"></select></div>
+        <div><label class="label" for="g-section">Section</label><select class="input" id="g-section"></select></div>
+        <div><button class="btn w-full" id="g-btn">Generate challans</button></div>
+      </div>
+      <div class="muted small" style="margin-top:.5rem">Leave class empty to include all active students. Students who already have a challan for the month are skipped. Unpaid balances are added as arrears.</div>
+    </div>
+
+    <div class="card">
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4" style="margin-bottom:.75rem">
+        <div><label class="label" for="f-month">Month</label><input class="input" id="f-month" type="month"></div>
+        <div><label class="label" for="f-class">Class</label><select class="input" id="f-class"></select></div>
+        <div><label class="label" for="f-section">Section</label><select class="input" id="f-section"></select></div>
+        <div><label class="label" for="f-status">Status</label><select class="input" id="f-status">
+          <option value="">All</option><option value="unpaid">Unpaid</option><option value="partial">Partial</option><option value="paid">Paid</option></select></div>
+      </div>
+      <div class="muted small" id="summary" style="margin-bottom:.5rem"></div>
+      <div class="table-wrap"><table class="tbl">
+        <thead><tr><th>Challan no</th><th>Student</th><th>Class</th><th>Month</th><th class="num">Payable</th><th class="num">Paid</th><th class="num">Balance</th><th>Status</th><th></th></tr></thead>
+        <tbody id="rows"></tbody></table></div>
+    </div>
+  </main>
+</div>
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/challans.js"></script>
+</body>
+</html>

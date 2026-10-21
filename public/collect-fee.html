@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Collect fee | Arhum Academy Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside id="sidebar"></aside>
+  <main class="main">
+    <div class="page-head">
+      <div class="flex items-center gap-3"><button class="btn btn-light menu-btn" id="menu-btn" aria-label="Open menu">☰</button><h1>Collect fee</h1></div>
+      <div class="flex gap-2 flex-wrap no-print" id="head-actions"></div>
+    </div>
+    <div class="card" style="margin-bottom:1rem">
+      <div class="grid gap-3 sm:grid-cols-[1fr_auto] items-end">
+        <div><label class="label" for="q">Search by challan no, roll no or student name</label>
+          <input class="input" id="q" placeholder="e.g. ARH-2026-0001, CH-202610-0003 or Ayesha" autofocus></div>
+        <label class="flex items-center gap-2" style="padding-bottom:.55rem"><input type="checkbox" id="open-only" checked> Only unpaid</label>
+      </div>
+    </div>
+    <div class="card"><div class="table-wrap"><table class="tbl">
+      <thead><tr><th>Challan no</th><th>Student</th><th>Class</th><th>Month</th><th class="num">Payable</th><th class="num">Paid</th><th class="num">Balance</th><th>Status</th><th></th></tr></thead>
+      <tbody id="rows"><tr><td colspan="9" class="text-center muted" style="padding:2rem">Type at least 2 letters to search.</td></tr></tbody></table></div></div>
+
+    <div class="modal-back" id="m-pay"><div class="modal" style="max-width:34rem">
+      <div class="flex justify-between items-center" style="margin-bottom:.75rem"><h2>Record payment</h2>
+        <button class="btn btn-light btn-sm" type="button" data-close aria-label="Close">✕</button></div>
+      <div id="c-info" style="margin-bottom:.75rem"></div>
+      <div id="c-history" style="margin-bottom:.75rem"></div>
+      <div class="form-error" id="form-error" role="alert"></div>
+      <form id="pay-form" novalidate>
+        <div id="fine-note" class="small" style="background:var(--amber-bg);color:var(--amber);padding:.5rem .7rem;border-radius:.45rem;margin-bottom:.75rem;display:none"></div>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <div><label class="label" for="amount">Amount received (Rs.) *</label><input class="input" id="amount" type="number" min="1" step="1"></div>
+          <div><label class="label" for="paid_on">Payment date *</label><input class="input" id="paid_on" type="date"></div>
+          <div><label class="label" for="method">Method *</label><select class="input" id="method">
+            <option value="cash">Cash</option><option value="bank">Bank</option><option value="jazzcash">JazzCash</option><option value="easypaisa">Easypaisa</option></select></div>
+          <div><label class="label" for="received_by">Received by *</label><input class="input" id="received_by" maxlength="80"></div>
+          <div class="sm:col-span-2"><label class="label" for="notes">Notes</label><input class="input" id="notes" maxlength="200"></div>
+        </div>
+        <div class="flex justify-end gap-2" style="margin-top:1rem"><button class="btn btn-light" type="button" data-close>Close</button>
+          <button class="btn" type="submit" id="pay-btn">Save payment</button></div>
+      </form>
+    </div></div>
+  </main>
+</div>
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/collect-fee.js"></script>
+</body>
+</html>

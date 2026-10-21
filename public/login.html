@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in | Arhum Academy Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <main class="min-h-screen grid md:grid-cols-2">
+    <section class="hidden md:flex flex-col justify-end p-12" style="background:#0d2b24;color:#cfe3dc">
+      <h1 style="font-size:2.6rem;color:#fff;margin:0;line-height:1.1">Arhum Academy</h1>
+      <p style="font-size:1.1rem;margin-top:.5rem">Dully Wala &mdash; fees, challans and records in one place.</p>
+    </section>
+    <section class="flex items-center justify-center p-6">
+      <form id="login-form" class="card w-full" style="max-width:24rem;padding:1.5rem" novalidate>
+        <h2 style="font-size:1.4rem;margin:0 0 .25rem">Log in</h2>
+        <p class="muted" style="margin:0 0 1rem">Use the email and password given by the academy owner.</p>
+        <div id="form-error" class="form-error" role="alert"></div>
+        <div style="margin-bottom:.8rem"><label class="label" for="email">Email</label>
+          <input class="input" id="email" type="email" autocomplete="username" required></div>
+        <div style="margin-bottom:1.1rem"><label class="label" for="password">Password</label>
+          <input class="input" id="password" type="password" autocomplete="current-password" required></div>
+        <button class="btn w-full" id="login-btn" type="submit">Log in</button>
+      </form>
+    </section>
+  </main>
+  <script src="/js/api.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

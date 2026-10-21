@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Arhum Academy Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside id="sidebar"></aside>
+  <main class="main">
+    <div class="page-head">
+      <div class="flex items-center gap-3"><button class="btn btn-light menu-btn" id="menu-btn" aria-label="Open menu">☰</button>
+        <div><h1>Dashboard</h1><div class="muted" id="month-label"></div></div></div>
+    </div>
+    <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-5" id="cards">
+      <div class="stat"><div class="k">Active students</div><div class="v" id="c-students"><span class="spinner"></span></div></div>
+      <div class="stat"><div class="k">Billed this month</div><div class="v" id="c-billed"></div></div>
+      <div class="stat"><div class="k">Collected this month</div><div class="v" id="c-collected"></div></div>
+      <div class="stat"><div class="k">Total pending dues</div><div class="v" id="c-pending"></div></div>
+      <div class="stat"><div class="k">Expenses this month</div><div class="v" id="c-expenses"></div></div>
+    </div>
+
+    <div class="card" style="margin-top:1.25rem;max-width:44rem">
+      <h2 style="margin:0 0 .75rem;font-size:1.1rem">This month at a glance</h2>
+      <div class="grid grid-cols-3 gap-3 items-center text-center">
+        <div><div class="muted small">Collected</div><div style="font-size:1.3rem;font-weight:700" id="s-collected"></div></div>
+        <div><div class="muted small">minus Expenses</div><div style="font-size:1.3rem;font-weight:700" id="s-expenses"></div></div>
+        <div><div class="muted small">Net</div><div style="font-size:1.5rem;font-weight:700" id="s-net"></div></div>
+      </div>
+    </div>
+
+    <div class="flex gap-2 flex-wrap" style="margin-top:1.25rem">
+      <a class="btn" href="/collect-fee.html">Collect fee</a>
+      <a class="btn btn-light" href="/challans.html">Generate challans</a>
+      <a class="btn btn-light" href="/students.html">Students</a>
+    </div>
+  </main>
+</div>
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>

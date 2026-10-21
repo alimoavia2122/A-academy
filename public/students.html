@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Students | Arhum Academy Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside id="sidebar"></aside>
+  <main class="main">
+    <div class="page-head">
+      <div class="flex items-center gap-3"><button class="btn btn-light menu-btn" id="menu-btn" aria-label="Open menu">☰</button><h1>Students</h1></div>
+      <div class="flex gap-2 flex-wrap no-print" id="head-actions"><button class="btn" id="btn-add">+ Add student</button></div>
+    </div>
+    <div class="card" style="margin-bottom:1rem">
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div><label class="label" for="f-q">Search</label><input class="input" id="f-q" placeholder="Name, father, roll no or phone"></div>
+        <div><label class="label" for="f-class">Class</label><select class="input" id="f-class"></select></div>
+        <div><label class="label" for="f-section">Section</label><select class="input" id="f-section"></select></div>
+        <div><label class="label" for="f-status">Status</label>
+          <select class="input" id="f-status"><option value="active">Active</option><option value="left">Left</option><option value="">All</option></select></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="muted small" id="count" style="margin-bottom:.5rem"></div>
+      <div class="table-wrap"><table class="tbl">
+        <thead><tr><th>Roll no</th><th>Student</th><th>Class</th><th>Phone</th><th class="num">Monthly fee</th><th>Status</th><th></th></tr></thead>
+        <tbody id="rows"></tbody></table></div>
+    </div>
+
+    <div class="modal-back" id="m-student"><div class="modal">
+      <div class="flex justify-between items-center" style="margin-bottom:.75rem"><h2 id="m-title">Add student</h2>
+        <button class="btn btn-light btn-sm" type="button" data-close aria-label="Close">✕</button></div>
+      <div class="form-error" id="form-error" role="alert"></div>
+      <form id="student-form" novalidate>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <div><label class="label" for="name">Student name *</label><input class="input" id="name" maxlength="100"></div>
+          <div><label class="label" for="father_name">Father name *</label><input class="input" id="father_name" maxlength="100"></div>
+          <div><label class="label" for="father_cnic">Father CNIC</label><input class="input" id="father_cnic" placeholder="33100-1234567-1" maxlength="15"></div>
+          <div><label class="label" for="phone">Phone</label><input class="input" id="phone" inputmode="tel" placeholder="0300-1234567"></div>
+          <div><label class="label" for="whatsapp">WhatsApp number</label><input class="input" id="whatsapp" inputmode="tel"></div>
+          <div><label class="label" for="admission_date">Admission date *</label><input class="input" id="admission_date" type="date"></div>
+          <div class="sm:col-span-2"><label class="label" for="address">Address</label><input class="input" id="address" maxlength="250"></div>
+          <div><label class="label" for="class_id">Class *</label><select class="input" id="class_id"></select></div>
+          <div><label class="label" for="section_id">Section</label><select class="input" id="section_id"></select></div>
+          <div><label class="label" for="monthly_fee">Monthly fee (Rs.) *</label><input class="input" id="monthly_fee" type="number" min="0" step="1"></div>
+          <div><label class="label" for="discount">Discount (Rs.)</label><input class="input" id="discount" type="number" min="0" step="1" value="0"></div>
+          <div id="admfee-box"><label class="label" for="admission_fee">Admission fee (Rs.)</label><input class="input" id="admission_fee" type="number" min="0" step="1" value="0">
+            <div class="muted small">A challan is created for this fee.</div></div>
+        </div>
+        <div class="flex justify-end gap-2" style="margin-top:1rem">
+          <button class="btn btn-light" type="button" data-close>Cancel</button>
+          <button class="btn" type="submit" id="save-btn">Save student</button>
+        </div>
+      </form>
+    </div></div>
+  </main>
+</div>
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/students.js"></script>
+</body>
+</html>

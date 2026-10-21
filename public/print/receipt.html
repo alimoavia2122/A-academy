@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fee receipt | Arhum Academy</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    @page { size: A5 portrait; margin: 8mm; }
+    body { background: #e4e9e6; font-family: Arial, Helvetica, sans-serif; color: #000; }
+    .bar { background: #fff; padding: 10px 16px; display: flex; gap: 10px; align-items: center; border-bottom: 1px solid #ccc; }
+    .rc { width: 130mm; margin: 12px auto; background: #fff; border: 1px solid #444; padding: 7mm; font-size: 12px; }
+    .head { text-align: center; border-bottom: 2px solid #000; padding-bottom: 3mm; margin-bottom: 3mm; }
+    .logo { width: 15mm; height: 15mm; border: 1px dashed #888; margin: 0 auto 2mm; font-size: 7px; color: #888; display: flex; align-items: center; justify-content: center; }
+    .head b { font-size: 16px; display: block; }
+    .title { text-align: center; font-weight: bold; border: 1px solid #000; padding: 1.5mm; margin-bottom: 3mm; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 3mm; }
+    td { padding: 1.6mm 2mm; border: 1px solid #777; }
+    td.k { width: 38%; background: #f2f2f2; }
+    td.r { text-align: right; }
+    .amount td { font-size: 15px; font-weight: bold; background: #eee; }
+    .sign { display: flex; justify-content: space-between; margin-top: 16mm; font-size: 11px; }
+    .sign span { border-top: 1px solid #000; width: 45%; text-align: center; padding-top: 1mm; }
+    @media print { body { background: #fff; } .bar { display: none; } .rc { margin: 0; border: 0; width: auto; } }
+  </style>
+</head>
+<body>
+  <div class="bar"><button class="btn" id="print-btn">Print</button><span id="info" class="muted"></span></div>
+  <div id="out" class="rc">Loading…</div>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/print-receipt.js"></script>
+</body>
+</html>
